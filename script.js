@@ -36,6 +36,7 @@ function renderRemedies() {
         const card = document.createElement('div');
         card.className = 'remedy-card';
         card.innerHTML = `
+            <div class="new-tag ${remedy.new ? '' : 'hidden'}">New</div>
             <img src="${remedy.image}" alt="${remedy.name}">
             <div class="remedy-card-content">
                 <h2>${remedy.name}</h2>
@@ -58,10 +59,13 @@ function generateStars(rating) {
     return stars;
 }
 
+
+
 function showDetails(remedy) {
     const detailsPanel = document.getElementById('detailsPanel');
     const remedyDetails = document.getElementById('remedyDetails');
-    
+    const overlay = document.getElementById('overlay');
+
     remedyDetails.innerHTML = `
         <img src="${remedy.image}" alt="${remedy.name}">
         <h2>${remedy.name}</h2>
@@ -76,8 +80,9 @@ function showDetails(remedy) {
             ${generateStars(remedy.rating)}
         </div>
     `;
-    
+
     detailsPanel.classList.add('visible');
+    overlay.classList.add('visible');
 
     const stars = remedyDetails.querySelectorAll('.star');
     stars.forEach(star => {
@@ -85,8 +90,27 @@ function showDetails(remedy) {
     });
 }
 
+function closeDetails() {
+    const detailsPanel = document.getElementById('detailsPanel');
+    const overlay = document.getElementById('overlay');
+    detailsPanel.classList.remove('visible');
+    overlay.classList.remove('visible');
+}
+
+function handleOutsideClick(event) {
+    const detailsPanel = document.getElementById('detailsPanel');
+    if (!detailsPanel.contains(event.target) && !event.target.closest('.remedy-card')) {
+        closeDetails();
+    }
+}
+
 function updateRating(remedy, newRating) {
     remedy.rating = newRating;
+    const feedback = document.createElement('div');
+    feedback.className = 'feedback';
+    feedback.textContent = 'Rating updated!';
+    document.body.appendChild(feedback);
+    setTimeout(() => feedback.remove(), 2000);
     renderRemedies();
     showDetails(remedy);
 }
@@ -111,9 +135,8 @@ document.getElementById('showOther').addEventListener('click', () => {
     renderRemedies();
 });
 
-document.getElementById('closeDetails').addEventListener('click', () => {
-    document.getElementById('detailsPanel').classList.remove('visible');
-});
+document.getElementById('closeDetails').addEventListener('click', closeDetails);
+document.addEventListener('click', handleOutsideClick);
 
 document.getElementById('searchInput').addEventListener('input', (e) => {
     const searchTerm = e.target.value.toLowerCase();
@@ -146,5 +169,31 @@ function renderFilteredRemedies(filteredRemedies) {
     });
 }
 
-renderRemedies();
+function loadAds() {
+    const adContainers = [
+        { id: 'ad-banner-1', key: '9a8ed33c49abcd7c4e869ac4d6ffe2c1' },
+        { id: 'ad-banner-2', key: '9a8ed33c49abcd7c4e869ac4d6ffe2c1' },
+        { id: 'ad-banner-3', key: '9a8ed33c49abcd7c4e869ac4d6ffe2c1' },
+        { id: 'ad-banner-4', key: '9a8ed33c49abcd7c4e869ac4d6ffe2c1' },
+        { id: 'ad-sidebar-1', key: '1251b24960053eebacb4277fecbae3f3' },
+        { id: 'ad-sidebar-2', key: '1251b24960053eebacb4277fecbae3f3' },
+        { id: 'ad-details-1', key: 'cc33a20ffe16c2c9d520014dbc179133' },
+        { id: 'ad-details-2', key: 'cc33a20ffe16c2c9d520014dbc179133' }
+    ];
 
+    adContainers.forEach(container => {
+        const adContainer = document.getElementById(container.id);
+        if (adContainer) {
+            const adScript = document.createElement('script');
+            adScript.src = `//www.highperformanceformat.com/${container.key}/invoke.js`;
+            adContainer.appendChild(adScript);
+        }
+    });
+}
+
+// Función de animación en la carga
+window.addEventListener('load', () => {
+    document.querySelector('header').classList.add('animate-header');
+    loadAds();
+    renderRemedies();
+});
