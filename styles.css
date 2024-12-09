@@ -305,33 +305,7 @@ main {
     color: gold;
 }
 
-.ad-container {
-    margin: 1rem 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f0f0f0;
-    border-radius: 5px;
-    overflow: hidden;
-}
 
-.ad-banner {
-    height: 60px;
-    width: 100%;
-    max-width: 468px;
-    margin: 1rem auto;
-}
-
-.ad-sidebar {
-    height: 300px;
-    width: 160px;
-}
-
-.ad-details {
-    height: 250px;
-    width: 300px;
-    margin: 1rem auto;
-}
 
 @media (max-width: 768px) {
     .content-wrapper {
