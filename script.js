@@ -1,43 +1,886 @@
 const remedies = [
-    { id: 1, name: "Ginger Tea", type: "herbal", description: "Helps relieve nausea and improves digestion.", ingredients: ["Fresh ginger", "Hot water", "Honey (optional)"], preparation: "1. Peel and thinly slice 2-3 cm of fresh ginger.\n2. Place the ginger in a cup and pour boiling water over it.\n3. Let it steep for 5-10 minutes.\n4. Strain the tea and add honey to taste if desired.", rating: 0, image: "https://i.pinimg.com/736x/b9/f7/2e/b9f72e32f1f9999de31e422525644fcb.jpg" },
-    { id: 2, name: "Salt Water Gargle", type: "food", description: "Soothes sore throat and reduces inflammation.", ingredients: ["Warm water", "Salt"], preparation: "1. Mix 1/4 teaspoon of salt in 1 cup of warm water.\n2. Gargle with the solution for 30 seconds.\n3. Spit out the water. Do not swallow.\n4. Repeat several times a day as needed.", rating: 0, image: "https://i.pinimg.com/736x/79/57/62/795762f3ead1b33ff8b9dc8fe6d0bd5a.jpg" },
-    { id: 3, name: "Chamomile Eye Compress", type: "herbal", description: "Relieves eye irritation and reduces swelling.", ingredients: ["Chamomile tea bags", "Hot water"], preparation: "1. Prepare two chamomile tea bags in hot water.\n2. Allow the tea bags to cool until they're warm.\n3. Place one tea bag over each closed eye.\n4. Relax for 10-15 minutes.\n5. Repeat as needed.", rating: 0, image: "https://i.pinimg.com/736x/99/fc/ff/99fcffd2fe98228330050075992cc9bf.jpg" },
-    { id: 4, name: "Honey for Cough", type: "food", description: "Calms cough and soothes the throat.", ingredients: ["Pure honey"], preparation: "1. Take a tablespoon of pure honey.\n2. Let the honey slowly slide down your throat.\n3. Repeat several times a day as needed.\n4. For children under 1 year, consult a pediatrician before use.", rating: 0, image: "https://i.pinimg.com/736x/47/9e/75/479e75000ef073a5b296803ad4de3993.jpg" },
-    { id: 5, name: "Oatmeal Bath", type: "food", description: "Relieves dry, itchy skin.", ingredients: ["Ground oatmeal", "Warm water"], preparation: "1. Fill the bathtub with warm water.\n2. Add 1 cup of ground oatmeal to the water.\n3. Stir to distribute the oatmeal.\n4. Soak your body in the bath for 15-20 minutes.\n5. Gently rinse and pat your skin dry with a soft towel.", rating: 0, image: "https://i.pinimg.com/736x/19/d1/6e/19d16e10171d9a420f31272625b11b12.jpg" },
-    { id: 6, name: "Lemon and Honey Drink", type: "food", description: "Boosts immune system and soothes sore throat.", ingredients: ["Lemon", "Honey", "Warm water"], preparation: "1. Squeeze half a lemon into a cup of warm water.\n2. Add 1-2 tablespoons of honey.\n3. Stir well and drink while warm.", rating: 0, image: "https://i.pinimg.com/736x/cc/bb/60/ccbb6011b8e55a645e2a308b1844764b.jpg" },
-    { id: 7, name: "Peppermint Tea", type: "herbal", description: "Relieves digestive discomfort and headaches.", ingredients: ["Peppermint leaves or tea bag", "Hot water"], preparation: "1. Place peppermint leaves or tea bag in a cup.\n2. Pour hot water over it.\n3. Steep for 5-10 minutes.\n4. Strain (if using leaves) and drink.", rating: 0, image: "https://i.pinimg.com/736x/a2/cb/11/a2cb113785105766d5e7f4237ae2c591.jpg" },
-    { id: 8, name: "Aloe Vera Gel", type: "herbal", description: "Soothes sunburns and minor skin irritations.", ingredients: ["Fresh aloe vera leaf"], preparation: "1. Cut open a fresh aloe vera leaf.\n2. Scoop out the gel.\n3. Apply directly to the affected area.\n4. Repeat 2-3 times daily.", rating: 0, image: "https://i.pinimg.com/736x/11/2e/ef/112eef9a11c10c925bdf1d97a4a99288.jpg" },
-    { id: 9, name: "Turmeric Milk", type: "food", description: "Anti-inflammatory and immune-boosting drink.", ingredients: ["Milk", "Turmeric powder", "Black pepper", "Honey (optional)"], preparation: "1. Heat 1 cup of milk in a saucepan.\n2. Add 1/2 teaspoon turmeric powder and a pinch of black pepper.\n3. Simmer for 5 minutes, stirring occasionally.\n4. Remove from heat and add honey to taste if desired.\n5. Drink while warm.", rating: 0, image: "https://i.pinimg.com/736x/30/23/93/302393b5c4012886b4aa050e17698ef1.jpg" },
-    { id: 10, name: "Eucalyptus Steam Inhalation", type: "herbal", description: "Clears congestion and soothes respiratory issues.", ingredients: ["Eucalyptus essential oil", "Hot water", "Towel"], preparation: "1. Add 3-5 drops of eucalyptus oil to a bowl of hot water.\n2. Drape a towel over your head and the bowl.\n3. Inhale the steam for 5-10 minutes.\n4. Repeat 2-3 times daily.", rating: 0, image: "https://i.pinimg.com/736x/30/d3/33/30d333e18e9269382451e468dd2d0d88.jpg" },
-    { id: 11, name: "Apple Cider Vinegar Tonic", type: "food", description: "Supports digestion and may help with weight management.", ingredients: ["Apple cider vinegar", "Water", "Honey (optional)"], preparation: "1. Mix 1-2 tablespoons of apple cider vinegar in a glass of water.\n2. Add honey to taste if desired.\n3. Drink before meals.\n4. Do not exceed 2 tablespoons per day.", rating: 0, image: "https://i.pinimg.com/736x/5c/25/e5/5c25e57ecc2bc9eb930180c1f4c441fc.jpg" },
-    { id: 12, name: "Garlic Immune Booster", type: "food", description: "Strengthens the immune system and has antimicrobial properties.", ingredients: ["Fresh garlic cloves", "Honey"], preparation: "1. Crush 2-3 garlic cloves and let them sit for 10 minutes.\n2. Mix with a tablespoon of honey.\n3. Consume daily for immune support.", rating: 0, image: "https://i.pinimg.com/736x/cf/73/cf/cf73cf07ce1161954bab661a1a24930a.jpg" },
-    { id: 13, name: "Epsom Salt Bath", type: "other", description: "Relieves muscle aches and reduces stress.", ingredients: ["Epsom salt", "Warm bath water", "Essential oils (optional)"], preparation: "1. Fill your bathtub with warm water.\n2. Add 1-2 cups of Epsom salt.\n3. Optional: Add a few drops of your favorite essential oil.\n4. Soak for 15-20 minutes.", rating: 0, image: "https://i.pinimg.com/736x/56/fa/8b/56fa8be2df5edc3f91a9a8ff9c647505.jpg" },
-    { id: 14, name: "Lavender Sleep Aid", type: "herbal", description: "Promotes relaxation and improves sleep quality.", ingredients: ["Lavender essential oil", "Pillow"], preparation: "1. Add a few drops of lavender essential oil to your pillow.\n2. Alternatively, use a lavender-filled sachet under your pillow.\n3. Breathe deeply and relax as you fall asleep.", rating: 0, image: "https://i.pinimg.com/736x/41/3a/0c/413a0cd27a6e5e647d0772af7b0efcd2.jpg" },
-    { id: 15, name: "Ginger and Lemon Shot", type: "food", description: "Boosts metabolism and supports immune function.", ingredients: ["Fresh ginger", "Lemon", "Cayenne pepper (optional)", "Water"], preparation: "1. Juice a 1-inch piece of ginger and half a lemon.\n2. Mix with a small amount of water.\n3. Add a pinch of cayenne pepper if desired.\n4. Drink as a shot in the morning.", rating: 0, image: "https://i.pinimg.com/736x/2c/67/77/2c67777c1104c7ff1a4685ce453de481.jpg" },
-    { id: 16, name: "Coconut Oil Pulling", type: "other", description: "Improves oral health and whitens teeth.", ingredients: ["Organic coconut oil"], preparation: "1. Take a tablespoon of coconut oil in your mouth.\n2. Swish it around for 15-20 minutes.\n3. Spit out the oil (do not swallow).\n4. Rinse your mouth with warm water and brush your teeth.", rating: 0, image: "https://i.pinimg.com/736x/9e/5d/b9/9e5db9f64f3c20adc5ee8f8184576d9f.jpg" },
-    { id: 17, name: "Cucumber Eye De-puffer", type: "food", description: "Reduces eye puffiness and soothes tired eyes.", ingredients: ["Fresh cucumber"], preparation: "1. Cut two thick slices of cold cucumber.\n2. Lie down and place a slice over each closed eye.\n3. Relax for 10-15 minutes.\n4. Repeat daily or as needed.", rating: 0, image: "https://i.pinimg.com/736x/e4/f4/73/e4f473527254571e0fe445a65e5d6f9f.jpg" },
-    { id: 18, name: "Cayenne Pepper for Pain Relief", type: "food", description: "Alleviates muscle and joint pain.", ingredients: ["Cayenne pepper powder", "Warm water", "Cotton swab"], preparation: "1. Mix 1/2 teaspoon of cayenne pepper powder with 1 cup of warm water.\n2. Dip a cotton swab into the mixture.\n3. Apply to the affected area.\n4. Use caution and avoid contact with eyes or open wounds.", rating: 0, image: "https://i.pinimg.com/736x/10/0d/ee/100dee477c66b7f28747159df57c3df9.jpg" },
-    { id: 19, name: "Banana Peel for Warts", type: "food", description: "Natural remedy for removing warts.", ingredients: ["Ripe banana peel", "Adhesive bandage"], preparation: "1. Cut a small piece of ripe banana peel.\n2. Place the inner side of the peel on the wart.\n3. Secure with an adhesive bandage.\n4. Leave overnight and repeat daily until the wart disappears.", rating: 0, image: "https://i.pinimg.com/736x/92/38/9e/92389e1f733f4564b0f7c5552f539c5a.jpg" },
-    { id: 20, name: "Onion Juice for Hair Growth", type: "food", description: "Promotes hair growth and reduces hair loss.", ingredients: ["Onion", "Cotton ball"], preparation: "1. Grate an onion and squeeze out its juice.\n2. Apply the juice to your scalp using a cotton ball.\n3. Leave it on for 15 minutes.\n4. Rinse thoroughly and shampoo as usual.\n5. Repeat 2-3 times a week.", rating: 0, image: "https://i.pinimg.com/736x/d8/68/d9/d868d90f962c50853a1948a4afd241e6.jpg" },
-    
-];
+    // Categoría: digestivo (25 recetas)
+    {
+        id: 1,
+        name: "Té de Jengibre",
+        type: "herbal",
+        description: "Ayuda a aliviar las náuseas y mejora la digestión.",
+        ingredients: ["Jengibre fresco", "Agua caliente", "Miel (opcional)"],
+        preparation: "1. Pela y corta en rodajas finas 2-3 cm de jengibre fresco.\n2. Coloca el jengibre en una taza y vierte agua hirviendo sobre él.\n3. Deja reposar durante 5-10 minutos.\n4. Cuela el té y añade miel al gusto si lo deseas.",
+        rating: 0,
+        image: "https://i.pinimg.com/736x/b9/f7/2e/b9f72e32f1f9999de31e422525644fcb.jpg",
+        category: "digestivo"
+    },
+    {
+        id: 2,
+        name: "Infusión de Menta",
+        type: "herbal",
+        description: "Alivia los problemas digestivos y reduce los gases.",
+        ingredients: ["Hojas de menta fresca", "Agua caliente"],
+        preparation: "1. Coloca 5-6 hojas de menta en una taza.\n2. Vierte agua caliente sobre las hojas.\n3. Deja reposar durante 5-7 minutos.\n4. Cuela y bebe.",
+        rating: 0,
+        image: "img/1.jpg",
+        category: "digestivo"
+    },
+    {
+        id: 3,
+        name: "Agua de Limón en Ayunas",
+        type: "food",
+        description: "Estimula la digestión y ayuda a desintoxicar el organismo.",
+        ingredients: ["Limón", "Agua tibia"],
+        preparation: "1. Exprime medio limón en un vaso de agua tibia.\n2. Bebe la mezcla en ayunas, 30 minutos antes del desayuno.",
+        rating: 0,
+        image: "img/2.jpg",
+        category: "digestivo"
+    },
+    {
+        id: 4,
+        name: "Té de Manzanilla",
+        type: "herbal",
+        description: "Calma el estómago y reduce la inflamación intestinal.",
+        ingredients: ["Flores de manzanilla secas", "Agua caliente"],
+        preparation: "1. Coloca 1 cucharada de flores de manzanilla en una taza.\n2. Vierte agua caliente sobre las flores.\n3. Deja reposar durante 5-10 minutos.\n4. Cuela y bebe.",
+        rating: 0,
+        image: "img/3.jpg",
+        category: "digestivo"
+    },
+    {
+        id: 5,
+        name: "Batido de Papaya",
+        type: "food",
+        description: "Mejora la digestión y previene el estreñimiento.",
+        ingredients: ["Papaya madura", "Agua", "Miel (opcional)"],
+        preparation: "1. Pela y corta la papaya en trozos.\n2. Licúa la papaya con un poco de agua.\n3. Añade miel al gusto si lo deseas.\n4. Bebe inmediatamente.",
+        rating: 0,
+        image: "img/4.jpg",
+        category: "digestivo"
+    },
+    {
+        id: 6,
+        name: "Infusión de Hinojo",
+        type: "herbal",
+        description: "Reduce los gases y alivia los cólicos.",
+        ingredients: ["Semillas de hinojo", "Agua caliente"],
+        preparation: "1. Machaca ligeramente 1 cucharadita de semillas de hinojo.\n2. Colócalas en una taza y vierte agua caliente.\n3. Deja reposar durante 10 minutos.\n4. Cuela y bebe.",
+        rating: 0,
+        image: "img/5.jpg",
+        category: "digestivo"
+    },
+    {
+        id: 7,
+        name: "Jugo de Aloe Vera",
+        type: "herbal",
+        description: "Alivia la acidez y mejora la salud intestinal.",
+        ingredients: ["Gel de aloe vera", "Agua", "Limón (opcional)"],
+        preparation: "1. Extrae el gel de una hoja de aloe vera.\n2. Mezcla 2 cucharadas de gel con un vaso de agua.\n3. Añade unas gotas de limón si lo deseas.\n4. Bebe en ayunas.",
+        rating: 0,
+        image: "img/6.jpg",
+        category: "digestivo"
+    },
+    {
+        id: 8,
+        name: "Té de Anís Estrellado",
+        type: "herbal",
+        description: "Alivia los cólicos y mejora la digestión.",
+        ingredients: ["Anís estrellado", "Agua caliente"],
+        preparation: "1. Coloca 1-2 estrellas de anís en una taza.\n2. Vierte agua caliente sobre ellas.\n3. Deja reposar durante 5-10 minutos.\n4. Cuela y bebe.",
+        rating: 0,
+        image: "img/7.jpg",
+        category: "digestivo"
+    },
+    {
+        id: 9,
+        name: "Compota de Manzana",
+        type: "food",
+        description: "Suaviza el sistema digestivo y alivia el estreñimiento.",
+        ingredients: ["Manzanas", "Agua", "Canela en polvo"],
+        preparation: "1. Pela y corta las manzanas en trozos.\n2. Cocina las manzanas en agua con un poco de canela hasta que estén blandas.\n3. Tritura la mezcla hasta obtener un puré.\n4. Consume tibio o frío.",
+        rating: 0,
+        image: "img/8.jpg",
+        category: "digestivo"
+    },
+    {
+        id: 10,
+        name: "Té de Comino",
+        type: "herbal",
+        description: "Reduce la hinchazón y mejora la digestión.",
+        ingredients: ["Semillas de comino", "Agua caliente"],
+        preparation: "1. Machaca ligeramente 1 cucharadita de semillas de comino.\n2. Colócalas en una taza y vierte agua caliente.\n3. Deja reposar durante 5-7 minutos.\n4. Cuela y bebe.",
+        rating: 0,
+        image: "img/9.jpg",
+        category: "digestivo"
+    },
+    {
+        id: 11,
+        name: "Smoothie de Kiwi y Piña",
+        type: "food",
+        description: "Mejora la digestión y aporta enzimas digestivas.",
+        ingredients: ["Kiwi", "Piña", "Agua"],
+        preparation: "1. Pela y corta 1 kiwi y 1 rodaja de piña.\n2. Licúa las frutas con un poco de agua.\n3. Bebe inmediatamente.",
+        rating: 0,
+        image: "img/10.jpg",
+        category: "digestivo"
+    },
+    {
+        id: 12,
+        name: "Infusión de Regaliz",
+        type: "herbal",
+        description: "Alivia la acidez y protege la mucosa gástrica.",
+        ingredients: ["Raíz de regaliz", "Agua caliente"],
+        preparation: "1. Coloca 1 cucharadita de raíz de regaliz en una taza.\n2. Vierte agua caliente sobre ella.\n3. Deja reposar durante 10 minutos.\n4. Cuela y bebe.",
+        rating: 0,
+        image: "img/11.jpg",
+        category: "digestivo"
+    },
+    {
+        id: 13,
+        name: "Agua de Avena",
+        type: "food",
+        description: "Calma el sistema digestivo y aporta fibra.",
+        ingredients: ["Avena en hojuelas", "Agua", "Canela (opcional)"],
+        preparation: "1. Remoja 3 cucharadas de avena en 1 vaso de agua durante la noche.\n2. Por la mañana, licúa la mezcla con un poco más de agua.\n3. Cuela y añade canela al gusto.\n4. Bebe en ayunas.",
+        rating: 0,
+        image: "img/12.jpg",
+        category: "digestivo"
+    },
+    {
+        id: 14,
+        name: "Té de Albahaca",
+        type: "herbal",
+        description: "Reduce los gases y calma los espasmos estomacales.",
+        ingredients: ["Hojas de albahaca fresca", "Agua caliente"],
+        preparation: "1. Coloca 5-6 hojas de albahaca en una taza.\n2. Vierte agua caliente sobre las hojas.\n3. Deja reposar durante 5 minutos.\n4. Cuela y bebe.",
+        rating: 0,
+        image: "img/13.jpg",
+        category: "digestivo"
+    },
+    {
+        id: 15,
+        name: "Jugo de Col",
+        type: "food",
+        description: "Ayuda a curar úlceras y mejora la salud intestinal.",
+        ingredients: ["Col", "Agua"],
+        preparation: "1. Lava y corta 1/4 de col en trozos.\n2. Licúa la col con un poco de agua.\n3. Cuela el jugo.\n4. Bebe inmediatamente, preferiblemente en ayunas.",
+        rating: 0,
+        image: "img/14.jpg",
+        category: "digestivo"
+    },
+    {
+        id: 16,
+        name: "Infusión de Salvia",
+        type: "herbal",
+        description: "Mejora la digestión y reduce la inflamación intestinal.",
+        ingredients: ["Hojas de salvia secas", "Agua caliente"],
+        preparation: "1. Coloca 1 cucharadita de hojas de salvia en una taza.\n2. Vierte agua caliente sobre las hojas.\n3. Deja reposar durante 5-7 minutos.\n4. Cuela y bebe.",
+        rating: 0,
+        image: "img/15.jpg",
+        category: "digestivo"
+    },
+    {
+        id: 17,
+        name: "Batido de Plátano y Yogur",
+        type: "food",
+        description: "Calma el estómago y aporta probióticos.",
+        ingredients: ["Plátano maduro", "Yogur natural", "Miel"],
+        preparation: "1. Pela y corta un plátano maduro.\n2. Licúa el plátano con 1 vaso de yogur natural.\n3. Añade una cucharadita de miel.\n4. Bebe inmediatamente.",
+        rating: 0,
+        image: "img/16.jpg",
+        category: "digestivo"
+    },
+    {
+        id: 18,
+        name: "Té de Diente de León",
+        type: "herbal",
+        description: "Estimula la producción de bilis y mejora la digestión.",
+        ingredients: ["Hojas de diente de león secas", "Agua caliente"],
+        preparation: "1. Coloca 1 cucharada de hojas de diente de león en una taza.\n2. Vierte agua caliente sobre las hojas.\n3. Deja reposar durante 10 minutos.\n4. Cuela y bebe.",
+        rating: 0,
+        image: "img/17.jpg",
+        category: "digestivo"
+    },
+    {
+        id: 19,
+        name: "Agua de Pepino",
+        type: "food",
+        description: "Hidrata y ayuda a eliminar toxinas del sistema digestivo.",
+        ingredients: ["Pepino", "Agua", "Limón (opcional)"],
+        preparation: "1. Lava y corta un pepino en rodajas.\n2. Coloca las rodajas en una jarra con agua.\n3. Deja reposar en el refrigerador durante 2 horas.\n4. Añade unas gotas de limón si lo deseas y bebe.",
+        rating: 0,
+        image: "img/18.jpg",
+        category: "digestivo"
+    },
+    {
+        id: 20,
+        name: "Infusión de Melisa",
+        type: "herbal",
+        description: "Calma los nervios del estómago y reduce los espasmos.",
+        ingredients: ["Hojas de melisa secas", "Agua caliente"],
+        preparation: "1. Coloca 1 cucharadita de hojas de melisa en una taza.\n2. Vierte agua caliente sobre las hojas.\n3. Deja reposar durante 5-7 minutos.\n4. Cuela y bebe.",
+        rating: 0,
+        image: "img/19.jpg",
+        category: "digestivo"
+    },
+    {
+        id: 21,
+        name: "Jugo de Zanahoria y Apio",
+        type: "food",
+        description: "Estimula la digestión y aporta fibra.",
+        ingredients: ["Zanahorias", "Apio", "Agua"],
+        preparation: "1. Lava y corta 2 zanahorias y 2 tallos de apio.\n2. Licúa las verduras con un poco de agua.\n3. Cuela el jugo si lo deseas.\n4. Bebe inmediatamente.",
+        rating: 0,
+        image: "img/20.jpg",
+        category: "digestivo"
+    },
+    {
+        id: 22,
+        name: "Té de Cúrcuma",
+        type: "herbal",
+        description: "Reduce la inflamación y mejora la digestión.",
+        ingredients: ["Cúrcuma en polvo", "Pimienta negra", "Agua caliente", "Miel"],
+        preparation: "1. Mezcla 1/4 cucharadita de cúrcuma y una pizca de pimienta negra en una taza.\n2. Vierte agua caliente sobre la mezcla.\n3. Añade miel al gusto.\n4. Remueve bien y bebe.",
+        rating: 0,
+        image: "img/21.jpg",
+        category: "digestivo"
+    },
+    {
+        id: 23,
+        name: "Batido de Espinacas y Plátano",
+        type: "food",
+        description: "Aporta fibra y nutrientes que favorecen la digestión.",
+        ingredients: ["Espinacas frescas", "Plátano maduro", "Agua"],
+        preparation: "1. Lava un puñado de espinacas.\n2. Pela un plátano maduro.\n3. Licúa las espinacas y el plátano con un poco de agua.\n4. Bebe inmediatamente.",
+        rating: 0,
+        image: "img/22.jpg",
+        category: "digestivo"
+    },
+    {
+        id: 24,
+        name: "Infusión de Romero",
+        type: "herbal",
+        description: "Estimula la producción de jugos gástricos y mejora la digestión.",
+        ingredients: ["Hojas de romero frescas", "Agua caliente"],
+        preparation: "1. Coloca 1-2 ramitas de romero fresco en una taza.\n2. Vierte agua caliente sobre las hojas.\n3. Deja reposar durante 5-10 minutos.\n4. Cuela y bebe.",
+        rating: 0,
+        image: "img/23.jpg",
+        category: "digestivo"
+    },
+    {
+        id: 25,
+        name: "Agua de Chía",
+        type: "food",
+        description: "Hidrata y aporta fibra para mejorar la digestión.",
+        ingredients: ["Semillas de chía", "Agua", "Limón (opcional)"],
+        preparation: "1. Remoja 1 cucharada de semillas de chía en un vaso de agua durante 30 minutos.\n2. Remueve la mezcla.\n3. Añade unas gotas de limón si lo deseas.\n4. Bebe lentamente.",
+        rating: 0,
+        image: "img/24.jpg",
+        category: "digestivo"
+    },
 
-let currentFilter = 'all';
+    // Categoría: respiratorio (25 recetas)
+    {
+        id: 26,
+        name: "Té de Eucalipto",
+        type: "herbal",
+        description: "Despeja las vías respiratorias y alivia la congestión.",
+        ingredients: ["Hojas de eucalipto secas", "Agua caliente"],
+        preparation: "1. Coloca 1 cucharadita de hojas de eucalipto en una taza.\n2. Vierte agua caliente sobre las hojas.\n3. Deja reposar durante 5-10 minutos.\n4. Cuela y bebe.",
+        rating: 0,
+        image: "img/25.jpg",
+        category: "respiratorio"
+    },
+    {
+        id: 27,
+        name: "Jarabe de Cebolla",
+        type: "food",
+        description: "Alivia la tos y ayuda a expectorar.",
+        ingredients: ["Cebolla", "Miel"],
+        preparation: "1. Corta una cebolla en rodajas finas.\n2. Coloca las rodajas en un tazón y cúbrelas con miel.\n3. Deja reposar durante la noche.\n4. Toma una cucharada del jarabe resultante según sea necesario.",
+        rating: 0,
+        image: "img/26.jpg",
+        category: "respiratorio"
+    },
+    {
+        id: 28,
+        name: "Infusión de Tomillo",
+        type: "herbal",
+        description: "Tiene propiedades expectorantes y antisépticas.",
+        ingredients: ["Hojas de tomillo secas", "Agua caliente"],
+        preparation: "1. Coloca 1 cucharadita de hojas de tomillo en una taza.\n2. Vierte agua caliente sobre las hojas.\n3. Deja reposar durante 5-7 minutos.\n4. Cuela y bebe.",
+        rating: 0,
+        image: "img/27.jpg",
+        category: "respiratorio"
+    },
+    {
+        id: 29,
+        name: "Vapor de Eucalipto",
+        type: "herbal",
+        description: "Despeja las vías respiratorias y alivia la congestión nasal.",
+        ingredients: ["Hojas de eucalipto frescas o aceite esencial", "Agua caliente"],
+        preparation: "1. Hierve agua en una olla.\n2. Añade hojas de eucalipto o unas gotas de aceite esencial.\n3. Cubre tu cabeza con una toalla e inhala el vapor durante 5-10 minutos.",
+        rating: 0,
+        image: "img/28.jpg",
+        category: "respiratorio"
+    },
+    {
+        id: 30,
+        name: "Jugo de Naranja y Zanahoria",
+        type: "food",
+        description: "Refuerza el sistema inmunológico y mejora la salud respiratoria.",
+        ingredients: ["Naranjas", "Zanahorias"],
+        preparation: "1. Exprime 2 naranjas.\n2. Licúa 2 zanahorias.\n3. Mezcla ambos jugos.\n4. Bebe inmediatamente.",
+        rating: 0,
+        image: "img/29.jpg",
+        category: "respiratorio"
+    },
+    {
+        id: 31,
+        name: "Té de Jengibre y Limón",
+        type: "herbal",
+        description: "Alivia el dolor de garganta y tiene propiedades antiinflamatorias.",
+        ingredients: ["Jengibre fresco", "Limón", "Miel", "Agua caliente"],
+        preparation: "1. Ralla 1 cucharadita de jengibre fresco.\n2. Coloca el jengibre en una taza y añade el jugo de medio limón.\n3. Vierte agua caliente y añade miel al gusto.\n4. Deja reposar 5 minutos, cuela y bebe.",
+        rating: 0,
+        image: "img/30.jpg",
+        category: "respiratorio"
+    },
+    {
+        id: 32,
+        name: "Gárgaras de Agua con Sal",
+        type: "food",
+        description: "Alivia el dolor de garganta y reduce la inflamación.",
+        ingredients: ["Agua tibia", "Sal"],
+        preparation: "1. Disuelve 1/4 de cucharadita de sal en 1 vaso de agua tibia.\n2. Haz gárgaras con la solución durante 30 segundos.\n3. Escupe el agua. No la tragues.\n4. Repite varias veces al día.",
+        rating: 0,
+        image: "img/31.jpg",
+        category: "respiratorio"
+    },
+    {
+        id: 33,
+        name: "Infusión de Orégano",
+        type: "herbal",
+        description: "Tiene propiedades antivirales y expectorantes.",
+        ingredients: ["Hojas de orégano secas", "Agua caliente"],
+        preparation: "1. Coloca 1 cucharadita de hojas de orégano en una taza.\n2. Vierte agua caliente sobre las hojas.\n3. Deja reposar durante 5-7 minutos.\n4. Cuela y bebe.",
+        rating: 0,
+        image: "img/32.jpg",
+        category: "respiratorio"
+    },
+    {
+        id: 34,
+        name: "Batido de Espinacas y Piña",
+        type: "food",
+        description: "Rico en vitamina C y antioxidantes para fortalecer el sistema inmunológico.",
+        ingredients: ["Espinacas frescas", "Piña", "Agua"],
+        preparation: "1. Lava un puñado de espinacas.\n2. Pela y corta 1/2 taza de piña.\n3. Licúa las espinacas y la piña con un poco de agua.\n4. Bebe inmediatamente.",
+        rating: 0,
+        image: "img/33.jpg",
+        category: "respiratorio"
+    },
+    {
+        id: 35,
+        name: "Té de Equinácea",
+        type: "herbal",
+        description: "Estimula el sistema inmunológico y ayuda a combatir infecciones respiratorias.",
+        ingredients: ["Raíz de equinácea seca", "Agua caliente"],
+        preparation: "1. Coloca 1 cucharadita de raíz de equinácea en una taza.\n2. Vierte agua caliente sobre la raíz.\n3. Deja reposar durante 10-15 minutos.\n4. Cuela y bebe.",
+        rating: 0,
+        image: "img/34.jpg",
+        category: "respiratorio"
+    },
+    {
+        id: 36,
+        name: "Sopa de Ajo",
+        type: "food",
+        description: "Tiene propiedades antibacterianas y fortalece el sistema inmunológico.",
+        ingredients: ["Ajo", "Caldo de pollo", "Pan tostado"],
+        preparation: "1. Machaca 3-4 dientes de ajo.\n2. Calienta 2 tazas de caldo de pollo.\n3. Añade el ajo machacado y cocina a fuego lento durante 10 minutos.\n4. Sirve con pan tostado.",
+        rating: 0,
+        image: "img/35.jpg",
+        category: "respiratorio"
+    },
+    {
+        id: 37,
+        name: "Inhalación de Romero",
+        type: "herbal",
+        description: "Despeja las vías respiratorias y tiene propiedades antisépticas.",
+        ingredients: ["Hojas de romero frescas", "Agua caliente"],
+        preparation: "1. Coloca un puñado de hojas de romero en un bol.\n2. Vierte agua caliente sobre las hojas.\n3. Cubre tu cabeza con una toalla e inhala el vapor durante 5-10 minutos.",
+        rating: 0,
+        image: "img/36.jpg",
+        category: "respiratorio"
+    },
+    {
+        id: 38,
+        name: "Té de Regaliz",
+        type: "herbal",
+        description: "Alivia la tos y tiene propiedades antiinflamatorias.",
+        ingredients: ["Raíz de regaliz seca", "Agua caliente"],
+        preparation: "1. Coloca 1 cucharadita de raíz de regaliz en una taza.\n2. Vierte agua caliente sobre la raíz.\n3. Deja reposar durante 5-10 minutos.\n4. Cuela y bebe.",
+        rating: 0,
+        image: "img/37.jpg",
+        category: "respiratorio"
+    },
+    {
+        id: 39,
+        name: "Batido de Kiwi y Naranja",
+        type: "food",
+        description: "Rico en vitamina C para fortalecer el sistema inmunológico.",
+        ingredients: ["Kiwi", "Naranja", "Agua"],
+        preparation: "1. Pela y corta 1 kiwi.\n2. Exprime 1 naranja.\n3. Licúa el kiwi con el jugo de naranja y un poco de agua.\n4. Bebe inmediatamente.",
+        rating: 0,
+        image: "img/38.jpg",
+        category: "respiratorio"
+    },
+    {
+        id: 40,
+        name: "Infusión de Gordolobo",
+        type: "herbal",
+        description: "Alivia la tos y tiene propiedades expectorantes.",
+        ingredients: ["Flores de gordolobo secas", "Agua caliente"],
+        preparation: "1. Coloca 1 cucharadita de flores de gordolobo en una taza.\n2. Vierte agua caliente sobre las flores.\n3. Deja reposar durante 10 minutos.\n4. Cuela y bebe.",
+        rating: 0,
+        image: "img/39.jpg",
+        category: "respiratorio"
+    },
+    {
+        id: 41,
+        name: "Jarabe de Cebolla y Miel",
+        type: "food",
+        description: "Alivia la tos y tiene propiedades antibacterianas.",
+        ingredients: ["Cebolla", "Miel"],
+        preparation: "1. Corta una cebolla en rodajas finas.\n2. Coloca las rodajas en un tazón y cúbrelas con miel.\n3. Deja reposar durante la noche.\n4. Toma una cucharada del jarabe resultante 3 veces al día.",
+        rating: 0,
+        image: "img/40.jpg",
+        category: "respiratorio"
+    },
+    {
+        id: 42,
+        name: "Té de Hisopo",
+        type: "herbal",
+        description: "Alivia la congestión y tiene propiedades expectorantes.",
+        ingredients: ["Hojas de hisopo secas", "Agua caliente"],
+        preparation: "1. Coloca 1 cucharadita de hojas de hisopo en una taza.\n2. Vierte agua caliente sobre las hojas.\n3. Deja reposar durante 5-7 minutos.\n4. Cuela y bebe.",
+        rating: 0,
+        image: "img/41.jpg",
+        category: "respiratorio"
+    },
+    {
+        id: 43,
+        name: "Batido de Espinacas y Manzana",
+        type: "food",
+        description: "Rico en antioxidantes y vitaminas para fortalecer el sistema inmunológico.",
+        ingredients: ["Espinacas frescas", "Manzana verde", "Agua"],
+        preparation: "1. Lava un puñado de espinacas.\n2. Pela y corta 1 manzana verde.\n3. Licúa las espinacas y la manzana con un poco de agua.\n4. Bebe inmediatamente.",
+        rating: 0,
+        image: "img/42.jpg",
+        category: "respiratorio"
+    },
+    {
+        id: 44,
+        name: "Infusión de Malva",
+        type: "herbal",
+        description: "Alivia la irritación de garganta y tiene propiedades antiinflamatorias.",
+        ingredients: ["Flores de malva secas", "Agua caliente"],
+        preparation: "1. Coloca 1 cucharadita de flores de malva en una taza.\n2. Vierte agua caliente sobre las flores.\n3. Deja reposar durante 5-10 minutos.\n4. Cuela y bebe.",
+        rating: 0,
+        image: "img/43.jpg",
+        category: "respiratorio"
+    },
+    {
+        id: 45,
+        name: "Jugo de Remolacha y Zanahoria",
+        type: "food",
+        description: "Rico en antioxidantes y mejora la oxigenación de la sangre.",
+        ingredients: ["Remolacha", "Zanahoria", "Manzana"],
+        preparation: "1. Lava y pela 1 remolacha pequeña, 2 zanahorias y 1 manzana.\n2. Licúa todos los ingredientes.\n3. Cuela el jugo si lo deseas.\n4. Bebe inmediatamente.",
+        rating: 0,
+        image: "img/44.jpg",
+        category: "respiratorio"
+    },
+    {
+        id: 46,
+        name: "Té de Saúco",
+        type: "herbal",
+        description: "Alivia los síntomas del resfriado y tiene propiedades antivirales.",
+        ingredients: ["Flores de saúco secas", "Agua caliente"],
+        preparation: "1. Coloca 2 cucharaditas de flores de saúco en una taza.\n2. Vierte agua caliente sobre las flores.\n3. Deja reposar durante 10-15 minutos.\n4. Cuela y bebe.",
+        rating: 0,
+        image: "img/45.jpg",
+        category: "respiratorio"
+    },
+    {
+        id: 47,
+        name: "Sopa de Pollo",
+        type: "food",
+        description: "Alivia los síntomas del resfriado y proporciona hidratación.",
+        ingredients: ["Caldo de pollo", "Zanahoria", "Apio", "Cebolla", "Ajo"],
+        preparation: "1. Prepara un caldo de pollo casero.\n2. Añade zanahorias, apio y cebolla picados.\n3. Agrega un diente de ajo machacado.\n4. Cocina a fuego lento durante 20 minutos.\n5. Sirve caliente.",
+        rating: 0,
+        image: "img/46.jpg",
+        category: "respiratorio"
+    },
+    {
+        id: 48,
+        name: "Inhalación de Menta",
+        type: "herbal",
+        description: "Despeja las vías respiratorias y alivia la congestión nasal.",
+        ingredients: ["Hojas de menta fresca o aceite esencial", "Agua caliente"],
+        preparation: "1. Hierve agua en una olla.\n2. Añade hojas de menta fresca o unas gotas de aceite esencial.\n3. Cubre tu cabeza con una toalla e inhala el vapor durante 5-10 minutos.",
+        rating: 0,
+        image: "img/47.jpg",
+        category: "respiratorio"
+    },
+    {
+        id: 49,
+        name: "Té de Tomillo y Miel",
+        type: "herbal",
+        description: "Alivia la tos y tiene propiedades antibacterianas.",
+        ingredients: ["Hojas de tomillo secas", "Miel", "Agua caliente"],
+        preparation: "1. Coloca 1 cucharadita de hojas de tomillo en una taza.\n2. Vierte agua caliente sobre las hojas.\n3. Deja reposar durante 5-7 minutos.\n4. Cuela y añade 1 cucharada de miel. Mezcla bien y bebe.",
+        rating: 0,
+        image: "img/48.jpg",
+        category: "respiratorio"
+    },
+    {
+        id: 50,
+        name: "Batido de Papaya y Naranja",
+        type: "food",
+        description: "Rico en vitamina C y enzimas que ayudan a combatir infecciones.",
+        ingredients: ["Papaya madura", "Naranja", "Agua"],
+        preparation: "1. Pela y corta 1 taza de papaya madura.\n2. Exprime 1 naranja.\n3. Licúa la papaya con el jugo de naranja y un poco de agua.\n4. Bebe inmediatamente.",
+        rating: 0,
+        image: "img/49.jpg",
+        category: "respiratorio"
+    },
+
+    // Categoría: belleza (25 recetas)
+    {
+        id: 51,
+        name: "Mascarilla de Aguacate y Miel",
+        type: "food",
+        description: "Hidrata y nutre la piel del rostro.",
+        ingredients: ["Aguacate maduro", "Miel"],
+        preparation: "1. Machaca la pulpa de medio aguacate.\n2. Mezcla con 1 cucharada de miel.\n3. Aplica sobre el rostro limpio.\n4. Deja actuar durante 15-20 minutos.\n5. Enjuaga con agua tibia.",
+        rating: 0,
+        image: "img/50.jpg",
+        category: "belleza"
+    },
+    {
+        id: 52,
+        name: "Exfoliante de Azúcar y Aceite de Coco",
+        type: "food",
+        description: "Elimina células muertas y suaviza la piel.",
+        ingredients: ["Azúcar", "Aceite de coco"],
+        preparation: "1. Mezcla 1/2 taza de azúcar con 1/4 taza de aceite de coco.\n2. Aplica sobre la piel húmeda con movimientos circulares.\n3. Enjuaga con agua tibia.",
+        rating: 0,
+        image: "img/51.jpg",
+        category: "belleza"
+    },
+    {
+        id: 53,
+        name: "Tónico de Agua de Rosas",
+        type: "herbal",
+        description: "Refresca y tonifica la piel.",
+        ingredients: ["Pétalos de rosa", "Agua destilada"],
+        preparation: "1. Coloca un puñado de pétalos de rosa en un frasco.\n2. Cubre con agua destilada.\n3. Deja reposar durante 24 horas.\n4. Cuela y guarda en un frasco limpio.\n5. Aplica con un algodón sobre el rostro limpio.",
+        rating: 0,
+        image: "img/52.jpg",
+        category: "belleza"
+    },
+    {
+        id: 54,
+        name: "Mascarilla de Arcilla Verde",
+        type: "other",
+        description: "Purifica y desintoxica la piel.",
+        ingredients: ["Arcilla verde en polvo", "Agua"],
+        preparation: "1. Mezcla 2 cucharadas de arcilla verde con agua hasta formar una pasta.\n2. Aplica sobre el rostro limpio.\n3. Deja actuar durante 10-15 minutos.\n4. Enjuaga con agua tibia.",
+        rating: 0,
+        image: "img/53.jpg",
+        category: "belleza"
+    },
+    {
+        id: 55,
+        name: "Acondicionador de Aguacate para Cabello",
+        type: "food",
+        description: "Nutre y suaviza el cabello.",
+        ingredients: ["Aguacate maduro", "Aceite de oliva", "Miel"],
+        preparation: "1. Machaca la pulpa de un aguacate.\n2. Mezcla con 2 cucharadas de aceite de oliva y 1 cucharada de miel.\n3. Aplica sobre el cabello húmedo.\n4. Deja actuar durante 30 minutos.\n5. Enjuaga bien.",
+        rating: 0,
+        image: "img/54.jpg",
+        category: "belleza"
+    },
+    {
+        id: 56,
+        name: "Mascarilla de Yogur y Miel",
+        type: "food",
+        description: "Hidrata y suaviza la piel.",
+        ingredients: ["Yogur natural", "Miel"],
+        preparation: "1. Mezcla 2 cucharadas de yogur natural con 1 cucharada de miel.\n2. Aplica sobre el rostro limpio.\n3. Deja actuar durante 15-20 minutos.\n4. Enjuaga con agua tibia.",
+        rating: 0,
+        image: "img/55.jpg",
+        category: "belleza"
+    },
+    {
+        id: 57,
+        name: "Exfoliante de Café para Cuerpo",
+        type: "food",
+        description: "Elimina células muertas y mejora la circulación.",
+        ingredients: ["Café molido", "Aceite de coco"],
+        preparation: "1. Mezcla 1/2 taza de café molido con 1/4 taza de aceite de coco.\n2. Aplica sobre la piel húmeda con movimientos circulares.\n3. Enjuaga con agua tibia.",
+        rating: 0,
+        image: "img/56.jpg",
+        category: "belleza"
+    },
+    {
+        id: 58,
+        name: "Mascarilla de Pepino",
+        type: "food",
+        description: "Refresca y descongestiona la piel.",
+        ingredients: ["Pepino"],
+        preparation: "1. Licúa medio pepino.\n2. Aplica la pulpa sobre el rostro limpio.\n3. Deja actuar durante 15-20 minutos.\n4. Enjuaga con agua fría.",
+        rating: 0,
+        image: "img/57.jpg",
+        category: "belleza"
+    },
+    {
+        id: 59,
+        name: "Aceite de Coco para Cabello",
+        type: "food",
+        description: "Nutre y fortalece el cabello.",
+        ingredients: ["Aceite de coco"],
+        preparation: "1. Calienta ligeramente el aceite de coco.\n2. Aplica sobre el cabello seco, masajeando desde las raíces hasta las puntas.\n3. Deja actuar durante 30 minutos o toda la noche.\n4. Lava el cabello como de costumbre.",
+        rating: 0,
+        image: "img/58.jpg",
+        category: "belleza"
+    },
+    {
+        id: 60,
+        name: "Mascarilla de Avena y Miel",
+        type: "food",
+        description: "Calma y suaviza la piel sensible.",
+        ingredients: ["Avena en polvo", "Miel", "Agua tibia"],
+        preparation: "1. Mezcla 2 cucharadas de avena en polvo con 1 cucharada de miel y un poco de agua tibia hasta formar una pasta.\n2. Aplica sobre el rostro limpio.\n3. Deja actuar durante 15-20 minutos.\n4. Enjuaga con agua tibia.",
+        rating: 0,
+        image: "img/59.jpg",
+        category: "belleza"
+    },
+    {
+        id: 61,
+        name: "Tónico de Manzanilla",
+        type: "herbal",
+        description: "Calma y refresca la piel sensible.",
+        ingredients: ["Flores de manzanilla secas", "Agua caliente"],
+        preparation: "1. Prepara una infusión con 2 cucharadas de flores de manzanilla en 1 taza de agua caliente.\n2. Deja enfriar y cuela.\n3. Guarda en un frasco limpio en el refrigerador.\n4. Aplica con un algodón sobre el rostro limpio.",
+        rating: 0,
+        image: "img/60.jpg",
+        category: "belleza"
+    },
+    {
+        id: 62,
+        name: "Exfoliante de Azúcar Moreno y Miel",
+        type: "food",
+        description: "Suaviza y exfolia los labios.",
+        ingredients: ["Azúcar moreno", "Miel", "Aceite de almendras"],
+        preparation: "1. Mezcla 1 cucharada de azúcar moreno con 1 cucharadita de miel y unas gotas de aceite de almendras.\n2. Aplica sobre los labios con movimientos circulares suaves.\n3. Deja actuar durante 1-2 minutos.\n4. Enjuaga con agua tibia.",
+        rating: 0,
+        image: "img/61.jpg",
+        category: "belleza"
+    },
+    {
+        id: 63,
+        name: "Mascarilla de Papaya",
+        type: "food",
+        description: "Aclara y suaviza la piel.",
+        ingredients: ["Papaya madura", "Miel"],
+        preparation: "1. Machaca 1/4 de papaya madura.\n2. Mezcla con 1 cucharada de miel.\n3. Aplica sobre el rostro limpio.\n4. Deja actuar durante 15-20 minutos.\n5. Enjuaga con agua tibia.",
+        rating: 0,
+        image: "img/62.jpg",
+        category: "belleza"
+    },
+    {
+        id: 64,
+        name: "Acondicionador de Huevo para Cabello",
+        type: "food",
+        description: "Fortalece y da brillo al cabello.",
+        ingredients: ["Huevo", "Aceite de oliva", "Miel"],
+        preparation: "1. Bate 1 huevo y mezcla con 2 cucharadas de aceite de oliva y 1 cucharada de miel.\n2. Aplica sobre el cabello húmedo.\n3. Deja actuar durante 20 minutos.\n4. Enjuaga bien con agua fría.",
+        rating: 0,
+        image: "img/63.jpg",
+        category: "belleza"
+    },
+    {
+        id: 65,
+        name: "Mascarilla de Arcilla Roja",
+        type: "other",
+        description: "Purifica y revitaliza la piel grasa.",
+        ingredients: ["Arcilla roja en polvo", "Agua de rosas"],
+        preparation: "1. Mezcla 2 cucharadas de arcilla roja con agua de rosas hasta formar una pasta.\n2. Aplica sobre el rostro limpio.\n3. Deja actuar durante 10-15 minutos.\n4. Enjuaga con agua tibia.",
+        rating: 0,
+        image: "img/64.jpg",
+        category: "belleza"
+    },
+    {
+        id: 66,
+        name: "Tónico de Té Verde",
+        type: "herbal",
+        description: "Antioxidante y astringente para la piel.",
+        ingredients: ["Té verde", "Agua caliente"],
+        preparation: "1. Prepara una infusión fuerte de té verde.\n2. Deja enfriar y cuela.\n3. Guarda en un frasco limpio en el refrigerador.\n4. Aplica con un algodón sobre el rostro limpio.",
+        rating: 0,
+        image: "img/65.jpg",
+        category: "belleza"
+    },
+    {
+        id: 67,
+        name: "Mascarilla de Plátano y Miel",
+        type: "food",
+        description: "Hidrata y nutre la piel seca.",
+        ingredients: ["Plátano maduro", "Miel"],
+        preparation: "1. Machaca un plátano maduro.\n2. Mezcla con 1 cucharada de miel.\n3. Aplica sobre el rostro limpio.\n4. Deja actuar durante 15-20 minutos.\n5. Enjuaga con agua tibia.",
+        rating: 0,
+        image: "img/66.jpg",
+        category: "belleza"
+    },
+    {
+        id: 68,
+        name: "Exfoliante de Sal Marina y Limón",
+        type: "food",
+        description: "Exfolia y aclara la piel del cuerpo.",
+        ingredients: ["Sal marina", "Jugo de limón", "Aceite de oliva"],
+        preparation: "1. Mezcla 1/2 taza de sal marina con el jugo de medio limón y 2 cucharadas de aceite de oliva.\n2. Aplica sobre la piel húmeda con movimientos circulares.\n3. Enjuaga con agua tibia.",
+        rating: 0,
+        image: "img/67.jpg",
+        category: "belleza"
+    },
+    {
+        id: 69,
+        name: "Mascarilla de Cacao",
+        type: "food",
+        description: "Antioxidante y nutritiva para la piel.",
+        ingredients: ["Cacao en polvo", "Yogur natural", "Miel"],
+        preparation: "1. Mezcla 2 cucharadas de cacao en polvo con 2 cucharadas de yogur natural y 1 cucharada de miel.\n2. Aplica sobre el rostro limpio.\n3. Deja actuar durante 15-20 minutos.\n4. Enjuaga con agua tibia.",
+        rating: 0,
+        image: "img/68.jpg",
+        category: "belleza"
+    },
+    {
+        id: 70,
+        name: "Aceite de Ricino para Pestañas",
+        type: "other",
+        description: "Fortalece y promueve el crecimiento de las pestañas.",
+        ingredients: ["Aceite de ricino"],
+        preparation: "1. Limpia bien las pestañas.\n2. Aplica una pequeña cantidad de aceite de ricino en las pestañas con un cepillo limpio de rímel.\n3. Deja actuar durante la noche.\n4. Enjuaga por la mañana.",
+        rating: 0,
+        image: "img/69.jpg",
+        category: "belleza"
+    },
+    {
+        id: 71,
+        name: "Mascarilla de Aloe Vera",
+        type: "herbal",
+        description: "Hidrata y calma la piel irritada.",
+        ingredients: ["Gel de aloe vera fresco", "Miel"],
+        preparation: "1. Extrae el gel de una hoja de aloe vera.\n2. Mezcla 2 cucharadas de gel con 1 cucharadita de miel.\n3. Aplica sobre el rostro limpio.\n4. Deja actuar durante 15-20 minutos.\n5. Enjuaga con agua fría.",
+        rating: 0,
+        image: "img/70.jpg",
+        category: "belleza"
+    },
+    {
+        id: 72,
+        name: "Tónico de Agua de Arroz",
+        type: "food",
+        description: "Suaviza y aclara la piel.",
+        ingredients: ["Arroz", "Agua"],
+        preparation: "1. Enjuaga 1/2 taza de arroz y cubre con agua.\n2. Deja reposar durante 30 minutos.\n3. Cuela y guarda el agua en un frasco limpio en el refrigerador.\n4. Aplica con un algodón sobre el rostro limpio.",
+        rating: 0,
+        image: "img/71.jpg",
+        category: "belleza"
+    },
+    {
+        id: 73,
+        name: "Mascarilla de Fresa",
+        type: "food",
+        description: "Exfolia suavemente y aporta vitamina C a la piel.",
+        ingredients: ["Fresas maduras", "Yogur natural"],
+        preparation: "1. Machaca 3-4 fresas maduras.\n2. Mezcla con 2 cucharadas de yogur natural.\n3. Aplica sobre el rostro limpio.\n4. Deja actuar durante 15 minutos.\n5. Enjuaga con agua tibia.",
+        rating: 0,
+        image: "img/72.jpg",
+        category: "belleza"
+    },
+    {
+        id: 74,
+        name: "Acondicionador de Mayonesa para Cabello",
+        type: "food",
+        description: "Hidrata profundamente el cabello seco y dañado.",
+        ingredients: ["Mayonesa", "Aceite de oliva"],
+        preparation: "1. Mezcla 1/2 taza de mayonesa con 2 cucharadas de aceite de oliva.\n2. Aplica sobre el cabello seco, desde las raíces hasta las puntas.\n3. Cubre con un gorro de ducha y deja actuar durante 30 minutos.\n4. Lava el cabello como de costumbre.",
+        rating: 0,
+        image: "img/73.jpg",
+        category: "belleza"
+    },
+    {
+        id: 75,
+        name: "Mascarilla de Carbón Activado",
+        type: "other",
+        description: "Desintoxica y purifica la piel grasa y con acné.",
+        ingredients: ["Carbón activado en polvo", "Agua", "Miel"],
+        preparation: "1. Mezcla 1 cucharadita de carbón activado con 1 cucharadita de agua y 1 cucharadita de miel.\n2. Aplica sobre el rostro limpio, evitando el área de los ojos.\n3. Deja actuar durante 10-15 minutos.\n4. Enjuaga con agua tibia.",
+        rating: 0,
+        image: "img/74.jpg",
+        category: "belleza"
+    },
+
+    // Categoría: piel (25 recetas)
+    {
+        id: 76,
+        name: "Crema de Caléndula",
+        type: "herbal",
+        description: "Calma y suaviza la piel irritada.",
+        ingredients: ["Flores de caléndula secas", "Aceite de almendras", "Cera de abeja"],
+        preparation: "1. Infunde las flores de caléndula en aceite de almendras durante 2 semanas.\n2. Cuela el aceite y caliéntalo al baño maría con cera de abeja.\n3. Vierte en un frasco limpio y deja enfriar.\n4. Aplica sobre la piel irritada.",
+        rating: 0,
+        image: "img/75.jpg",
+        category: "piel"
+    },
+    {
+        id: 77,
+        name: "Gel de Aloe Vera",
+        type: "herbal",
+        description: "Hidrata y calma quemaduras solares.",
+        ingredients: ["Hoja de aloe vera fresca"],
+        preparation: "1. Corta una hoja de aloe vera y extrae el gel.\n2. Licúa el gel hasta obtener una consistencia suave.\n3. Guarda en un frasco limpio en el refrigerador.\n4. Aplica sobre la piel afectada.",
+        rating: 0,
+        image: "img/76.jpg",
+        category: "piel"
+    },
+    {
+        id: 78,
+        name: "Loción de Avena",
+        type: "food",
+        description: "Alivia el picor y la irritación de la piel.",
+        ingredients: ["Avena en polvo", "Agua"],
+        preparation: "1. Mezcla 1/2 taza de avena en polvo con agua hasta formar una pasta suave.\n2. Aplica sobre la piel afectada.\n3. Deja actuar durante 15-20 minutos.\n4. Enjuaga con agua tibia.",
+        rating: 0,
+        image: "img/77.jpg",
+        category: "piel"
+    },
+]
+
+let currentFilter = "all"
 
 function renderRemedies() {
-    const remedyList = document.getElementById('remedyList');
-    remedyList.innerHTML = '';
+  const remedyList = document.getElementById("remedyList")
+  remedyList.innerHTML = ""
 
-    const filteredRemedies = remedies.filter(remedy => {
-        if (currentFilter === 'all') return true;
-        return remedy.type === currentFilter;
-    });
+  const filteredRemedies = remedies.filter((remedy) => {
+    if (currentFilter === "all") return true
+    return remedy.type === currentFilter
+  })
 
-    filteredRemedies.forEach(remedy => {
-        const card = document.createElement('div');
-        card.className = 'remedy-card';
-        card.innerHTML = `
-            <div class="new-tag ${remedy.new ? '' : 'hidden'}">New</div>
+  filteredRemedies.forEach((remedy) => {
+    const card = document.createElement("div")
+    card.className = "remedy-card"
+    card.innerHTML = `
             <img src="${remedy.image}" alt="${remedy.name}">
             <div class="remedy-card-content">
                 <h2>${remedy.name}</h2>
@@ -46,116 +889,114 @@ function renderRemedies() {
                     ${generateStars(remedy.rating)}
                 </div>
             </div>
-        `;
-        card.addEventListener('click', () => showDetails(remedy));
-        remedyList.appendChild(card);
-    });
+        `
+    card.addEventListener("click", () => showDetails(remedy))
+    remedyList.appendChild(card)
+  })
 }
 
 function generateStars(rating) {
-    let stars = '';
-    for (let i = 1; i <= 5; i++) {
-        stars += `<span class="star ${i <= rating ? 'active' : ''}" data-value="${i}">★</span>`;
-    }
-    return stars;
+  let stars = ""
+  for (let i = 1; i <= 5; i++) {
+    stars += `<span class="star ${i <= rating ? "active" : ""}" data-value="${i}">★</span>`
+  }
+  return stars
 }
 
-
-
 function showDetails(remedy) {
-    const detailsPanel = document.getElementById('detailsPanel');
-    const remedyDetails = document.getElementById('remedyDetails');
-    const overlay = document.getElementById('overlay');
+  const detailsPanel = document.getElementById("detailsPanel")
+  const remedyDetails = document.getElementById("remedyDetails")
+  const overlay = document.getElementById("overlay")
 
-    remedyDetails.innerHTML = `
-        <img src="${remedy.image}" alt="${remedy.name}">
-        <h2>${remedy.name}</h2>
-        <p>${remedy.description}</p>
-        <h3>Ingredients:</h3>
-        <ul>
-            ${remedy.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}
-        </ul>
-        <h3>Preparation:</h3>
-        <pre>${remedy.preparation}</pre>
-        <div class="rating">
-            ${generateStars(remedy.rating)}
-        </div>
-    `;
+  const remedyImage = remedyDetails.querySelector(".remedy-image")
+  const remedyTitle = remedyDetails.querySelector(".remedy-title")
+  const remedyDescription = remedyDetails.querySelector(".remedy-description")
+  const ingredientsList = remedyDetails.querySelector(".ingredients ul")
+  const preparationList = remedyDetails.querySelector(".preparation ol")
+  const ratingDiv = remedyDetails.querySelector(".rating")
 
-    detailsPanel.classList.add('visible');
-    overlay.classList.add('visible');
+  remedyImage.style.backgroundImage = `url(${remedy.image})`
+  remedyTitle.textContent = remedy.name
+  remedyDescription.textContent = remedy.description
 
-    const stars = remedyDetails.querySelectorAll('.star');
-    stars.forEach(star => {
-        star.addEventListener('click', () => updateRating(remedy, parseInt(star.dataset.value)));
-    });
+  ingredientsList.innerHTML = remedy.ingredients.map((ingredient) => `<li>${ingredient}</li>`).join("")
+
+  preparationList.innerHTML = remedy.preparation
+    .split("\n")
+    .map((step) => `<li>${step.trim()}</li>`)
+    .join("")
+
+  ratingDiv.innerHTML = generateStars(remedy.rating)
+
+  detailsPanel.classList.add("visible")
+  overlay.classList.add("visible")
+
+  const stars = ratingDiv.querySelectorAll(".star")
+  stars.forEach((star) => {
+    star.addEventListener("click", () => updateRating(remedy, Number.parseInt(star.dataset.value)))
+  })
 }
 
 function closeDetails() {
-    const detailsPanel = document.getElementById('detailsPanel');
-    const overlay = document.getElementById('overlay');
-    detailsPanel.classList.remove('visible');
-    overlay.classList.remove('visible');
+  const detailsPanel = document.getElementById("detailsPanel")
+  detailsPanel.classList.remove("visible")
+  const overlay = document.getElementById("overlay")
+  overlay.classList.remove("visible")
 }
 
 function handleOutsideClick(event) {
-    const detailsPanel = document.getElementById('detailsPanel');
-    if (!detailsPanel.contains(event.target) && !event.target.closest('.remedy-card')) {
-        closeDetails();
-    }
+  const detailsPanel = document.getElementById("detailsPanel")
+  const modalContent = document.querySelector(".modal-content")
+  if (event.target === detailsPanel && !modalContent.contains(event.target)) {
+    closeDetails()
+  }
 }
 
 function updateRating(remedy, newRating) {
-    remedy.rating = newRating;
-    const feedback = document.createElement('div');
-    feedback.className = 'feedback';
-    feedback.textContent = 'Rating updated!';
-    document.body.appendChild(feedback);
-    setTimeout(() => feedback.remove(), 2000);
-    renderRemedies();
-    showDetails(remedy);
+  remedy.rating = newRating
+  renderRemedies()
+  showDetails(remedy)
 }
 
-document.getElementById('showAll').addEventListener('click', () => {
-    currentFilter = 'all';
-    renderRemedies();
-});
+document.getElementById("showAll").addEventListener("click", () => {
+  currentFilter = "all"
+  renderRemedies()
+})
 
-document.getElementById('showHerbal').addEventListener('click', () => {
-    currentFilter = 'herbal';
-    renderRemedies();
-});
+document.getElementById("showHerbal").addEventListener("click", () => {
+  currentFilter = "herbal"
+  renderRemedies()
+})
 
-document.getElementById('showFood').addEventListener('click', () => {
-    currentFilter = 'food';
-    renderRemedies();
-});
+document.getElementById("showFood").addEventListener("click", () => {
+  currentFilter = "food"
+  renderRemedies()
+})
 
-document.getElementById('showOther').addEventListener('click', () => {
-    currentFilter = 'other';
-    renderRemedies();
-});
+document.getElementById("showOther").addEventListener("click", () => {
+  currentFilter = "other"
+  renderRemedies()
+})
 
-document.getElementById('closeDetails').addEventListener('click', closeDetails);
-document.addEventListener('click', handleOutsideClick);
+document.getElementById("closeDetails").addEventListener("click", closeDetails)
+document.addEventListener("click", handleOutsideClick)
 
-document.getElementById('searchInput').addEventListener('input', (e) => {
-    const searchTerm = e.target.value.toLowerCase();
-    const filteredRemedies = remedies.filter(remedy => 
-        remedy.name.toLowerCase().includes(searchTerm) || 
-        remedy.description.toLowerCase().includes(searchTerm)
-    );
-    renderFilteredRemedies(filteredRemedies);
-});
+document.getElementById("searchInput").addEventListener("input", (e) => {
+  const searchTerm = e.target.value.toLowerCase()
+  const filteredRemedies = remedies.filter(
+    (remedy) => remedy.name.toLowerCase().includes(searchTerm) || remedy.description.toLowerCase().includes(searchTerm),
+  )
+  renderFilteredRemedies(filteredRemedies)
+})
 
 function renderFilteredRemedies(filteredRemedies) {
-    const remedyList = document.getElementById('remedyList');
-    remedyList.innerHTML = '';
+  const remedyList = document.getElementById("remedyList")
+  remedyList.innerHTML = ""
 
-    filteredRemedies.forEach(remedy => {
-        const card = document.createElement('div');
-        card.className = 'remedy-card';
-        card.innerHTML = `
+  filteredRemedies.forEach((remedy) => {
+    const card = document.createElement("div")
+    card.className = "remedy-card"
+    card.innerHTML = `
             <img src="${remedy.image}" alt="${remedy.name}">
             <div class="remedy-card-content">
                 <h2>${remedy.name}</h2>
@@ -164,37 +1005,43 @@ function renderFilteredRemedies(filteredRemedies) {
                     ${generateStars(remedy.rating)}
                 </div>
             </div>
-        `;
-        card.addEventListener('click', () => showDetails(remedy));
-        remedyList.appendChild(card);
-    });
+        `
+    card.addEventListener("click", () => showDetails(remedy))
+    remedyList.appendChild(card)
+  })
 }
 
-function loadAds() {
-    const adContainers = [
-        { id: 'ad-banner-1', key: '9a8ed33c49abcd7c4e869ac4d6ffe2c1' },
-        { id: 'ad-banner-2', key: '9a8ed33c49abcd7c4e869ac4d6ffe2c1' },
-        { id: 'ad-banner-3', key: '9a8ed33c49abcd7c4e869ac4d6ffe2c1' },
-        { id: 'ad-banner-4', key: '9a8ed33c49abcd7c4e869ac4d6ffe2c1' },
-        { id: 'ad-sidebar-1', key: '1251b24960053eebacb4277fecbae3f3' },
-        { id: 'ad-sidebar-2', key: '1251b24960053eebacb4277fecbae3f3' },
-        { id: 'ad-details-1', key: 'cc33a20ffe16c2c9d520014dbc179133' },
-        { id: 'ad-details-2', key: 'cc33a20ffe16c2c9d520014dbc179133' }
-    ];
+function renderCategories() {
+  const categoryList = document.getElementById("categoryList")
+  const categories = [...new Set(remedies.map((remedy) => remedy.category))]
 
-    adContainers.forEach(container => {
-        const adContainer = document.getElementById(container.id);
-        if (adContainer) {
-            const adScript = document.createElement('script');
-            adScript.src = `//www.highperformanceformat.com/${container.key}/invoke.js`;
-            adContainer.appendChild(adScript);
-        }
-    });
+  categories.forEach((category) => {
+    const li = document.createElement("li")
+    li.textContent = category.charAt(0).toUpperCase() + category.slice(1)
+    li.className = "category-item"
+    li.addEventListener("click", () => {
+      document.querySelectorAll(".category-item").forEach((item) => item.classList.remove("active"))
+      li.classList.add("active")
+      filterByCategory(category)
+    })
+    categoryList.appendChild(li)
+  })
 }
 
-// Función de animación en la carga
-window.addEventListener('load', () => {
-    document.querySelector('header').classList.add('animate-header');
-    loadAds();
-    renderRemedies();
-});
+function filterByCategory(category) {
+  const filteredRemedies = remedies.filter((remedy) => remedy.category === category)
+  renderFilteredRemedies(filteredRemedies)
+  document.getElementById("searchInput").value = ""
+}
+
+document.getElementById("newsletterForm").addEventListener("submit", (e) => {
+  e.preventDefault()
+  alert("¡Gracias por suscribirte a nuestro boletín!")
+  e.target.reset()
+})
+
+window.addEventListener("load", () => {
+  renderRemedies()
+  renderCategories()
+})
+

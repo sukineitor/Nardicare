@@ -1,112 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nardicare</title>
+    <title>Nardicare - Remedios Naturales</title>
     <link rel="stylesheet" href="styles.css">
-    
-    <link rel="shortcut icon" href="logo.png" type="image/png">
+    <link rel="shortcut icon" href="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-H1mbBP1JylBMUp5Xm1rI7fzxvDWZJB.png" type="image/png">
 </head>
 <body>
     <header>
+        <script type='text/javascript' src='//filthygracefulspinach.com/45/58/75/45587575827d7dc879142b53dead5809.js'></script>
         <div class="header-content">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-H1mbBP1JylBMUp5Xm1rI7fzxvDWZJB.png" alt="Nardicare Logo" class="logo">
             <h1>Nardicare</h1>
-            <p>Your Natural Health Companion</p>
+            <p>Tu Compañero de Salud Natural</p>
         </div>
         <nav>
-            <button id="showAll">All</button>
+            <button id="showAll">Todos</button>
             <button id="showHerbal">Herbal</button>
-            <button id="showFood">Food-based</button>
-            <button id="showOther">Other</button>
+            <button id="showFood">Alimentos</button>
+            <button id="showOther">Otros</button>
         </nav>
     </header>
     <main>
         <section id="searchSection">
-            <input type="text" id="searchInput" placeholder="Search remedies...">
+            <input type="text" id="searchInput" placeholder="Buscar remedios...">
         </section>
-        <div id="ad-banner-1" class="ad-container ad-banner"></div>
-        <div id="ad-banner-2" class="ad-container ad-banner"></div>
-
-<center><script type="text/javascript">
-	atOptions = {
-		'key' : '1251b24960053eebacb4277fecbae3f3',
-		'format' : 'iframe',
-		'height' : 300,
-		'width' : 160,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//filthygracefulspinach.com/1251b24960053eebacb4277fecbae3f3/invoke.js"></script><script type="text/javascript">
-	atOptions = {
-		'key' : '1251b24960053eebacb4277fecbae3f3',
-		'format' : 'iframe',
-		'height' : 300,
-		'width' : 160,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//filthygracefulspinach.com/1251b24960053eebacb4277fecbae3f3/invoke.js"></script><script type="text/javascript">
-	atOptions = {
-		'key' : '1251b24960053eebacb4277fecbae3f3',
-		'format' : 'iframe',
-		'height' : 300,
-		'width' : 160,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//filthygracefulspinach.com/1251b24960053eebacb4277fecbae3f3/invoke.js"></script></center>
-
         <div class="content-wrapper">
             <section id="remedyList"></section>
             <aside class="sidebar">
-                <div id="ad-sidebar-1" class="ad-container ad-sidebar"></div>
-                <div id="ad-sidebar-2" class="ad-container ad-sidebar"></div>
+                <h3>Categorías Populares</h3>
+                <ul id="categoryList" class="category-list"></ul>
             </aside>
         </div>
-        <div id="ad-banner-3" class="ad-container ad-banner"></div>
-        <div id="ad-banner-4" class="ad-container ad-banner"></div>
     </main>
-    <center>
-    <script type="text/javascript">
-        atOptions = {
-            'key' : 'cc33a20ffe16c2c9d520014dbc179133',
-            'format' : 'iframe',
-            'height' : 250,
-            'width' : 300,
-            'params' : {}
-        };
-    </script>
-    <script type="text/javascript" src="//filthygracefulspinach.com/cc33a20ffe16c2c9d520014dbc179133/invoke.js"></script>
-    <script type="text/javascript">
-        atOptions = {
-            'key' : 'cc33a20ffe16c2c9d520014dbc179133',
-            'format' : 'iframe',
-            'height' : 250,
-            'width' : 300,
-            'params' : {}
-        };
-    </script>
-    <script type="text/javascript" src="//filthygracefulspinach.com/cc33a20ffe16c2c9d520014dbc179133/invoke.js"></script><script type="text/javascript">
-        atOptions = {
-            'key' : 'cc33a20ffe16c2c9d520014dbc179133',
-            'format' : 'iframe',
-            'height' : 250,
-            'width' : 300,
-            'params' : {}
-        };
-    </script>
-    <script type="text/javascript" src="//filthygracefulspinach.com/cc33a20ffe16c2c9d520014dbc179133/invoke.js"></script>
-</center>
     <div id="overlay" class="hidden"></div>
     <aside id="detailsPanel" class="hidden">
-        <button id="closeDetails" aria-label="Close details">&times;</button>
-        <div id="remedyDetails"></div>
-        <div id="ad-details-1" class="ad-container ad-details"></div>
-        <div id="ad-details-2" class="ad-container ad-details"></div>
-    </aside>
+    <div class="modal-content">
+        <button id="closeDetails" aria-label="Cerrar detalles">&times;</button>
+        <div id="remedyDetails">
+            <div class="remedy-image"></div>
+            <div class="remedy-info">
+                <h2 class="remedy-title"></h2>
+                <p class="remedy-description"></p>
+                <div class="remedy-meta">
+                    <div class="ingredients">
+                        <h3>Ingredientes:</h3>
+                        <ul></ul>
+                    </div>
+                    <div class="preparation">
+                        <h3>Preparación:</h3>
+                        <ol></ol>
+                    </div>
+                </div>
+                <div class="rating"></div>
+            </div>
+        </div>
+    </div>
+</aside>
     <footer>
-        <p>&copy; 2024 Nardicare</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sobre Nardicare</h3>
+                <p>Tu fuente confiable de remedios naturales y sabiduría curativa tradicional.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Todos los Remedios</a></li>
+                    <li><a href="#">Sobre Nosotros</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Boletín</h3>
+                <p>Suscríbete para recibir actualizaciones sobre nuevos remedios y consejos de salud.</p>
+                <form id="newsletterForm">
+                    <input type="email" placeholder="Tu correo electrónico" required>
+                    <button type="submit">Suscribirse</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Nardicare. Todos los derechos reservados.</p>
+        </div>
     </footer>
     <script src="script.js"></script>
 </body>
